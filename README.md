@@ -1,9 +1,17 @@
 # Netflix-Gpt
 
-# create-react-app
+-create-react-app
 
-# configured tailwindcss
+-configured tailwindcss
+-Routing
+- Header
+    -Login Form
+    -Sign up Form
+    - form validation
+    - use Ref Hooks
+    - authentication
 
+    
 # Features
 
 *Without Login
