@@ -10,6 +10,18 @@
     - form validation
     - use Ref Hooks
     - authentication
+    - firebase setup
+    - app deployement to production
+    - Create Sign up user account
+    -Implement Sign in user api
+    -store setup with userSlice
+    - Sign out Implementation
+    - Upate Profile (API)
+    - BUgFix - Sign up user DiaplayName and profile picture
+    - BugFix - if the user is not logged in Redirect to browse or login page and vice versa
+    - Unsubscribe to the onAuthStateChanges call back
+    - regisetred fro TMDB api & create an app and get access token
+    - get Data from tmdb now palying movies list
 
     
 # Features
@@ -32,5 +44,8 @@
 * Netflix- Gpt
     * Search bar
     * Movie Suggestion
+
+
+    
 
 
