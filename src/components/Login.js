@@ -22,7 +22,6 @@ const Login = () => {
   const password = useRef();
 
   const toggleSignIn = () => {
-    console.log("hell");
     setIsSignInForm(!isSignInForm);
   };
 
