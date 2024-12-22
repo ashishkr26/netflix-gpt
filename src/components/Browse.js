@@ -7,6 +7,7 @@ import SecondaryContainer from "./SecondaryContainer";
 const Browse = () => {
 
 useNowPlayingMovies();
+console.log("now_playing", )
  
 
   return (
