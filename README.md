@@ -48,6 +48,15 @@
     *Movie Suggestion
         * Movie List * N
 
+   {/*
+      MainContainer
+        -VideoContainer
+        -VideoTitle
+
+      ListContainer
+        -MoviesList *n
+          -MovieCards *n
+      */}
 * Netflix- Gpt
     * Search bar
     * Movie Suggestion
