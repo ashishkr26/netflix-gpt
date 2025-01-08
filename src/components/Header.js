@@ -14,6 +14,8 @@ const Header = (isSignIn) => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
+        console.log("sign out completed")
+        alert("You have succesfully logged out")
         // Sign-out successful.
       })
       .catch((error) => {

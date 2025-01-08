@@ -10,10 +10,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
 
 const Login = () => {
-  const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState();
 
@@ -48,14 +46,7 @@ const Login = () => {
             displayName: name.current.value,
             photoURL: "https://avatars.githubusercontent.com/u/112201248?v=4",
           })
-            .then(() => {
-              const { uid, email, displayName } = auth.currentUser;
-              dispatch(
-                addUser({ uid: uid, email: email, displayName: displayName })
-              );
-              // Profile updated!
-              // ...
-            })
+           
             .catch((error) => {
               // An error occurred
               // ...
@@ -97,7 +88,7 @@ const Login = () => {
           <img className="absolute" alt="bg-logo" src={BACKGROUND_IMAGE} />
         </div>
 
-        <div className="w-[420px] bg-black absolute right-0 left-0 mx-auto my-28 bg-opacity-80 text-white p-12">
+        <div className="w-[420px] bg-black absolute right-0 left-0 mx-auto my-28 bg-opacity-90 text-white p-12">
           <form onSubmit={(e) => e.preventDefault()}>
             <h1 className="text-3xl font-bold pb-4 ">
               {isSignInForm ? "Sign In" : "Sign Up"}
