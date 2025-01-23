@@ -2,32 +2,42 @@ import React, { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addTrailerVideo } from "../utils/movieSlice";
-// import { json } from "react-router-dom";
 
 const VideoBackground = ({ mainMovie }) => {
   const dispatch = useDispatch();
   const trailerVideo = useSelector((store) => store?.movies?.trailerVideo);
+
   useEffect(() => {
     getMovieVideos();
   }, []);
 
   const getMovieVideos = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/845781/videos?language=en-US",
-      API_OPTIONS
-    );
-    const json = await data.json();
-    console.log("json dattra", json);
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/movie/${mainMovie?.id || 0}/videos?language=en-US`,
+        API_OPTIONS
+      );
+      const json = await data.json();
 
-    const filterData = json.results.filter(
-      (video) => video.type === "Trailer" && video.name === "Official Trailer"
-    );
+      console.log("Fetched video data:", json);
 
-    dispatch(addTrailerVideo(filterData));
+      const filterData = json.results?.filter(
+        (video) => video.type === "Trailer" && video.name === "Official Trailer"
+      ) || [];
+
+      dispatch(addTrailerVideo(filterData));
+    } catch (err) {
+      console.error("Error fetching movie videos:", err);
+    }
   };
 
+  // Handle cases where trailerVideo is undefined or empty
+  if (!trailerVideo || trailerVideo.length === 0 || !trailerVideo[0]?.key) {
+    return <p>No trailer available for this movie.</p>;
+  }
+
   return (
-    <div className=" w-screen">
+    <div className="w-screen">
       <iframe
         className="w-screen aspect-video"
         src={`https://www.youtube.com/embed/${trailerVideo[0].key}?autoplay=1&mute=1`}
